@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Awal Hosen Jibon </title>
+    <title>Awal Hosen Jibon</title>
 
-    <meta name="description" content="Official personal website of Awal Hosen Jibon, a student of the University of Dhaka.">
+    <meta name="description" content="Official personal website of Awal Hosen Jibon, student of the University of Dhaka.">
 
     <meta name="author" content="Awal Hosen Jibon">
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -23,7 +29,7 @@
             padding: 60px 20px;
         }
 
-        img {
+        .profile-img {
             width: 190px;
             height: 190px;
             object-fit: cover;
@@ -40,15 +46,105 @@
             font-size: 16px;
             line-height: 1.8;
         }
+
+        .gallery-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .gallery-btn:hover {
+            background: #555;
+        }
+
+        /* Gallery */
+
+        #gallery {
+            display: none;
+            padding: 25px 15px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 900px;
+            margin: 25px auto;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Full Image View */
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #lightbox img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 500px) {
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid img {
+                height: 130px;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
-    <div class="container">
+    <!-- Home Page -->
+
+    <div class="container" id="home">
 
         <img src="profile.jpg"
-             alt="Awal Hosen Jibon">
+             alt="Awal Hosen Jibon"
+             class="profile-img">
 
         <h1>Awal Hosen Jibon</h1>
 
@@ -59,7 +155,86 @@
             Kurigram, Bangladesh
         </p>
 
+        <button class="gallery-btn" onclick="showGallery()">
+            Gallery
+        </button>
+
     </div>
 
+
+    <!-- Gallery Page -->
+
+    <div id="gallery">
+
+        <h2>My Gallery</h2>
+
+        <button class="gallery-btn" onclick="showHome()">
+            ← Back
+        </button>
+
+        <div class="gallery-grid">
+
+            <img src="gallery/photo1.jpg" onclick="openImage(this.src)">
+            <img src="gallery/photo2.jpg" onclick="openImage(this.src)">
+            <img src="gallery/photo3.jpg" onclick="openImage(this.src)">
+            <img src="gallery/photo4.jpg" onclick="openImage(this.src)">
+            <img src="gallery/photo5.jpg" onclick="openImage(this.src)">
+            <img src="gallery/photo6.jpg" onclick="openImage(this.src)">
+
+        </div>
+
+    </div>
+
+
+    <!-- Full Image -->
+
+    <div id="lightbox" onclick="closeImage()">
+
+        <span class="close">&times;</span>
+
+        <img id="fullImage" src="">
+
+    </div>
+
+
+    <script>
+
+        function showGallery() {
+
+            document.getElementById("home").style.display = "none";
+
+            document.getElementById("gallery").style.display = "block";
+
+            window.scrollTo(0, 0);
+
+        }
+
+        function showHome() {
+
+            document.getElementById("gallery").style.display = "none";
+
+            document.getElementById("home").style.display = "block";
+
+            window.scrollTo(0, 0);
+
+        }
+
+        function openImage(src) {
+
+            document.getElementById("lightbox").style.display = "flex";
+
+            document.getElementById("fullImage").src = src;
+
+        }
+
+        function closeImage() {
+
+            document.getElementById("lightbox").style.display = "none";
+
+        }
+
+    </script>
+
 </body>
+
 </html>
