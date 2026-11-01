@@ -1,1 +1,84 @@
-
+/* Shared styles for Awal Hosen Jibon's personal website */
+:root{--ink:#18243a;--muted:#657187;--primary:#176b5b;--primary-dark:#105044;--pale:#edf6f2;--white:#fff;--line:#e5ebe8;--shadow:0 12px 35px rgba(25,50,43,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fbfdfc;line-height:1.7}
+a{color:inherit;text-decoration:none}
+.site-header{min-height:72px;padding:0 max(5%,calc((100% - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.brand{font-size:1.12rem;font-weight:750;color:var(--primary)}
+.main-nav{display:flex;gap:28px;align-items:center}
+.main-nav a{font-size:.95rem;color:#4e5b6c;padding:24px 0;border-bottom:3px solid transparent}
+.main-nav a:hover,.main-nav a.active{color:var(--primary);border-color:var(--primary)}
+.menu-toggle{display:none;border:0;background:none;font-size:1.6rem;color:var(--primary);cursor:pointer}
+.hero{max-width:1120px;margin:auto;padding:90px 24px 75px;display:grid;grid-template-columns:1.35fr .8fr;align-items:center;gap:65px}
+.eyebrow{font-size:.76rem;letter-spacing:2px;font-weight:700;color:var(--primary);margin:0 0 12px}
+.hero h1{font-size:clamp(2.35rem,5vw,4.2rem);line-height:1.13;margin:0 0 15px;letter-spacing:-1.5px}
+.hero h1 span{color:var(--primary)}
+.hero h2{font-size:1.2rem;font-weight:600;color:#526174;margin:0 0 18px}
+.lead{font-size:1.05rem;color:var(--muted);max-width:620px}
+.hero-photo-wrap{justify-self:center;width:min(100%,330px);aspect-ratio:1/1;border-radius:48% 48% 44% 44%;background:var(--pale);padding:12px;box-shadow:var(--shadow)}
+.profile-photo{width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.button{display:inline-block;background:var(--primary);color:white;padding:12px 20px;border-radius:8px;font-weight:650}
+.button:hover{background:var(--primary-dark)}
+.button-outline{background:transparent;color:var(--primary);border:1px solid var(--primary)}
+.button-outline:hover{background:var(--pale);color:var(--primary-dark)}
+.section{max-width:1120px;margin:0 auto;padding:55px 24px}
+.intro-section{background:var(--pale);max-width:none;padding-left:max(24px,calc((100% - 1072px)/2));padding-right:max(24px,calc((100% - 1072px)/2))}
+.section-heading{text-align:center;margin-bottom:28px}
+.section-heading h2,.page-banner h1{font-size:2.1rem;line-height:1.2;margin:0}
+.content-card{background:white;padding:25px 28px;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.content-card p:last-child{margin-bottom:0}
+.card-grid,.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature-card,.contact-card{display:block;background:white;border:1px solid var(--line);border-radius:14px;padding:26px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
+.feature-card:hover,.contact-card:hover{transform:translateY(-4px);border-color:#9bc8b8}
+.feature-icon{font-size:2rem}
+.feature-card h3,.contact-card h2{margin:12px 0 4px}
+.feature-card p,.contact-card p{color:var(--muted);margin:0 0 14px}
+.card-link{color:var(--primary);font-weight:700}
+.page-main{min-height:calc(100vh - 140px)}
+.page-banner{text-align:center;padding:68px 20px 48px;background:var(--pale)}
+.page-banner p:last-child{color:var(--muted);margin-bottom:0}
+.timeline{max-width:800px;margin:0 auto;display:grid;gap:22px}
+.timeline-item{display:grid;grid-template-columns:100px 1fr;gap:20px;align-items:start}
+.timeline-year{padding:8px 12px;text-align:center;border-radius:20px;background:var(--pale);color:var(--primary);font-weight:700}
+.timeline-item .content-card h2{font-size:1.2rem;margin:0 0 5px}
+.timeline-item .content-card h3{font-size:1rem;color:var(--primary);margin:0 0 8px}
+.timeline-item .content-card p{margin:0;color:var(--muted)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gallery-image{width:100%;height:260px;object-fit:cover;border-radius:12px;cursor:zoom-in;box-shadow:var(--shadow);transition:transform .2s}
+.gallery-image:hover{transform:scale(1.02)}
+.small-note{text-align:center;color:var(--muted);font-size:.85rem;margin-top:22px}
+.contact-grid{grid-template-columns:repeat(2,1fr);max-width:850px;margin:0 auto}
+.contact-card{text-align:center}
+.contact-icon{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--pale);color:var(--primary);font-size:1.5rem;font-weight:700}
+.contact-card p{overflow-wrap:anywhere}
+.site-footer{text-align:center;padding:22px 15px;background:#17283a;color:#dce7e2;font-size:.9rem}
+.site-footer p{margin:0}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(8,15,20,.92);z-index:30;align-items:center;justify-content:center;padding:30px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(95vw,1000px);max-height:85vh;object-fit:contain;border-radius:8px}
+.lightbox-close{position:absolute;top:15px;right:25px;background:none;border:0;color:white;font-size:2.7rem;cursor:pointer}
+@media(max-width:760px){
+ .site-header{padding:0 20px;min-height:65px;flex-wrap:wrap}
+ .menu-toggle{display:block}
+ .main-nav{display:none;flex-basis:100%;flex-direction:column;align-items:stretch;gap:0;padding:0 0 12px}
+ .main-nav.open{display:flex}
+ .main-nav a{padding:10px 0;border-bottom:1px solid var(--line)}
+ .main-nav a.active{border-bottom-color:var(--primary)}
+ .hero{grid-template-columns:1fr;text-align:center;padding-top:55px;gap:35px}
+ .hero-photo-wrap{grid-row:1;width:230px}
+ .lead{margin-left:auto;margin-right:auto}
+ .hero-actions{justify-content:center}
+ .card-grid,.gallery-grid{grid-template-columns:repeat(2,1fr)}
+ .gallery-image{height:210px}
+}
+@media(max-width:480px){
+ .card-grid,.gallery-grid,.contact-grid{grid-template-columns:1fr}
+ .gallery-image{height:260px}
+ .timeline-item{grid-template-columns:1fr;gap:8px}
+ .timeline-year{justify-self:start;padding:5px 13px}
+ .section{padding:42px 18px}
+ .intro-section{padding-left:18px;padding-right:18px}
+ .content-card{padding:20px}
+}
