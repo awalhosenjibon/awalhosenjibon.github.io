@@ -378,73 +378,112 @@
 
     <!-- JAVASCRIPT -->
 
-    <script>
+<script>
 
-        // Show Gallery
+    // Show Home
+    function showHome() {
 
-        function showGallery() {
+        document.getElementById("gallery").style.display = "none";
+        document.getElementById("education").style.display = "none";
+        document.getElementById("home").style.display = "block";
 
-            document.getElementById("home").style.display = "none";
+        window.scrollTo(0, 0);
 
-            document.getElementById("education").style.display = "none";
+    }
+
+
+    // Show Gallery
+    function showGallery() {
+
+        history.pushState({ page: "gallery" }, "", "#gallery");
+
+        displayPage("gallery");
+
+    }
+
+
+    // Show Education
+    function showEducation() {
+
+        history.pushState({ page: "education" }, "", "#education");
+
+        displayPage("education");
+
+    }
+
+
+    // Display Selected Page
+    function displayPage(page) {
+
+        document.getElementById("home").style.display = "none";
+        document.getElementById("gallery").style.display = "none";
+        document.getElementById("education").style.display = "none";
+
+        if (page === "gallery") {
 
             document.getElementById("gallery").style.display = "block";
 
-            window.scrollTo(0, 0);
-
         }
 
-
-        // Show Education
-
-        function showEducation() {
-
-            document.getElementById("home").style.display = "none";
-
-            document.getElementById("gallery").style.display = "none";
+        else if (page === "education") {
 
             document.getElementById("education").style.display = "block";
 
-            window.scrollTo(0, 0);
-
         }
 
-
-        // Back to Home
-
-        function showHome() {
-
-            document.getElementById("gallery").style.display = "none";
-
-            document.getElementById("education").style.display = "none";
+        else {
 
             document.getElementById("home").style.display = "block";
 
-            window.scrollTo(0, 0);
+        }
+
+        window.scrollTo(0, 0);
+
+    }
+
+
+    // Mobile Back Button Support
+    window.addEventListener("popstate", function(event) {
+
+        if (event.state && event.state.page) {
+
+            displayPage(event.state.page);
+
+        } else {
+
+            showHome();
 
         }
 
-
-        // Open Full Image
-
-        function openImage(src) {
-
-            document.getElementById("lightbox").style.display = "flex";
-
-            document.getElementById("fullImage").src = src;
-
-        }
+    });
 
 
-        // Close Full Image
+    // Open Full Image
+    function openImage(src) {
 
-        function closeImage() {
+        document.getElementById("lightbox").style.display = "flex";
 
-            document.getElementById("lightbox").style.display = "none";
+        document.getElementById("fullImage").src = src;
 
-        }
+    }
 
-    </script>
+
+    // Close Full Image
+    function closeImage() {
+
+        document.getElementById("lightbox").style.display = "none";
+
+    }
+
+
+    // Back Button
+    function backToHome() {
+
+        history.back();
+
+    }
+
+</script>
 
 
 </body>
