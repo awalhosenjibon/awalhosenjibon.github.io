@@ -153,6 +153,8 @@
             cursor: pointer;
         }
 
+        /* Mobile Responsive */
+
         @media (max-width: 500px) {
 
             .gallery-grid {
@@ -171,7 +173,8 @@
 
 <body>
 
-    <!-- Home Page -->
+
+    <!-- HOME PAGE -->
 
     <div class="container" id="home">
 
@@ -199,7 +202,8 @@
     </div>
 
 
-    <!-- Gallery Page -->
+
+    <!-- GALLERY PAGE -->
 
     <div id="gallery">
 
@@ -211,24 +215,31 @@
 
         <div class="gallery-grid">
 
-            <img src="gallery/IMG_20260710_131805.jpg" onclick="openImage(this.src)">
+            <img src="gallery/IMG_20260710_131805.jpg"
+                 onclick="openImage(this.src)">
 
-            <img src="gallery/IMG_20260430_165523.jpg" onclick="openImage(this.src)">
+            <img src="gallery/IMG_20260430_165523.jpg"
+                 onclick="openImage(this.src)">
 
-            <img src="gallery/IMG_20260918_174553.jpg" onclick="openImage(this.src)">
+            <img src="gallery/IMG_20260918_174553.jpg"
+                 onclick="openImage(this.src)">
 
-            <img src="gallery/IMG_20260823_142023-01 (1).jpg" onclick="openImage(this.src)">
+            <img src="gallery/IMG_20260823_142023-01 (1).jpg"
+                 onclick="openImage(this.src)">
 
-            <img src="gallery/IMG20241218132942.jpg" onclick="openImage(this.src)">
+            <img src="gallery/IMG20241218132942.jpg"
+                 onclick="openImage(this.src)">
 
-            <img src="gallery/RJ••JIBON••BABU••4 Sep 16_23.SONY NATURE V2Format Auto. by Light Editz.jpg" onclick="openImage(this.src)">
+            <img src="gallery/RJ••JIBON••BABU••4 Sep 16_23.SONY NATURE V2Format Auto. by Light Editz.jpg"
+                 onclick="openImage(this.src)">
 
         </div>
 
     </div>
 
 
-    <!-- Education Page -->
+
+    <!-- EDUCATION PAGE -->
 
     <div id="education">
 
@@ -240,7 +251,8 @@
 
         <div class="education-container">
 
-            <!-- Primary -->
+
+            <!-- PRIMARY EDUCATION -->
 
             <div class="education-card">
 
@@ -262,6 +274,7 @@
             </div>
 
 
+
             <!-- SSC -->
 
             <div class="education-card">
@@ -274,6 +287,10 @@
                 </p>
 
                 <p>
+                    <span>Group:</span> Science
+                </p>
+
+                <p>
                     <span>Passing Year:</span> 2022
                 </p>
 
@@ -282,6 +299,7 @@
                 </p>
 
             </div>
+
 
 
             <!-- HSC -->
@@ -296,6 +314,10 @@
                 </p>
 
                 <p>
+                    <span>Group:</span> Science
+                </p>
+
+                <p>
                     <span>Passing Year:</span> 2024
                 </p>
 
@@ -306,20 +328,26 @@
             </div>
 
 
-            <!-- Honours -->
+
+            <!-- HONOURS -->
 
             <div class="education-card">
 
                 <h3>Undergraduate Education</h3>
 
                 <p>
-                    <span>Institution:</span>
-                    University of Dhaka
+                    <span>Degree:</span>
+                    Bachelor of Business Administration (BBA)
                 </p>
 
                 <p>
-                    <span>Department:</span>
+                    <span>Major:</span>
                     Banking and Insurance
+                </p>
+
+                <p>
+                    <span>Institution:</span>
+                    University of Dhaka
                 </p>
 
                 <p>
@@ -329,12 +357,14 @@
 
             </div>
 
+
         </div>
 
     </div>
 
 
-    <!-- Full Image -->
+
+    <!-- FULL IMAGE VIEW -->
 
     <div id="lightbox" onclick="closeImage()">
 
@@ -345,44 +375,68 @@
     </div>
 
 
+
+    <!-- JAVASCRIPT -->
+
     <script>
+
+        // Show Gallery
 
         function showGallery() {
 
             document.getElementById("home").style.display = "none";
+
             document.getElementById("education").style.display = "none";
+
             document.getElementById("gallery").style.display = "block";
 
             window.scrollTo(0, 0);
 
         }
 
+
+        // Show Education
+
         function showEducation() {
 
             document.getElementById("home").style.display = "none";
+
             document.getElementById("gallery").style.display = "none";
+
             document.getElementById("education").style.display = "block";
 
             window.scrollTo(0, 0);
 
         }
 
+
+        // Back to Home
+
         function showHome() {
 
             document.getElementById("gallery").style.display = "none";
+
             document.getElementById("education").style.display = "none";
+
             document.getElementById("home").style.display = "block";
 
             window.scrollTo(0, 0);
 
         }
 
+
+        // Open Full Image
+
         function openImage(src) {
 
             document.getElementById("lightbox").style.display = "flex";
+
             document.getElementById("fullImage").src = src;
 
         }
+
+
+        // Close Full Image
 
         function closeImage() {
 
@@ -391,6 +445,7 @@
         }
 
     </script>
+
 
 </body>
 
