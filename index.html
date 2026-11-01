@@ -49,11 +49,12 @@
 
         .gallery-btn {
             display: inline-block;
-            margin-top: 15px;
+            margin: 10px 5px;
             padding: 12px 30px;
             background: #333;
             color: white;
             text-decoration: none;
+            border: none;
             border-radius: 25px;
             cursor: pointer;
             font-size: 15px;
@@ -63,12 +64,15 @@
             background: #555;
         }
 
-        /* Gallery */
+        /* Pages */
 
-        #gallery {
+        #gallery,
+        #education {
             display: none;
-            padding: 25px 15px;
+            padding: 30px 15px;
         }
+
+        /* Gallery */
 
         .gallery-grid {
             display: grid;
@@ -84,7 +88,37 @@
             object-fit: cover;
             border-radius: 8px;
             cursor: pointer;
-            border: none;
+        }
+
+        /* Education Cards */
+
+        .education-container {
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+        .education-card {
+            background: white;
+            padding: 25px 20px;
+            margin: 18px 0;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            text-align: left;
+            border-left: 5px solid #333;
+        }
+
+        .education-card h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .education-card p {
+            font-size: 15px;
+            margin: 8px 0;
+        }
+
+        .education-card span {
+            font-weight: bold;
         }
 
         /* Full Image View */
@@ -107,7 +141,6 @@
             max-width: 100%;
             max-height: 85vh;
             object-fit: contain;
-            border: none;
             border-radius: 5px;
         }
 
@@ -159,6 +192,10 @@
             Gallery
         </button>
 
+        <button class="gallery-btn" onclick="showEducation()">
+            Education
+        </button>
+
     </div>
 
 
@@ -175,11 +212,122 @@
         <div class="gallery-grid">
 
             <img src="gallery/IMG_20260710_131805.jpg" onclick="openImage(this.src)">
+
             <img src="gallery/IMG_20260430_165523.jpg" onclick="openImage(this.src)">
+
             <img src="gallery/IMG_20260918_174553.jpg" onclick="openImage(this.src)">
+
             <img src="gallery/IMG_20260823_142023-01 (1).jpg" onclick="openImage(this.src)">
+
             <img src="gallery/IMG20241218132942.jpg" onclick="openImage(this.src)">
+
             <img src="gallery/RJ••JIBON••BABU••4 Sep 16_23.SONY NATURE V2Format Auto. by Light Editz.jpg" onclick="openImage(this.src)">
+
+        </div>
+
+    </div>
+
+
+    <!-- Education Page -->
+
+    <div id="education">
+
+        <h2>My Education</h2>
+
+        <button class="gallery-btn" onclick="showHome()">
+            ← Back
+        </button>
+
+        <div class="education-container">
+
+            <!-- Primary -->
+
+            <div class="education-card">
+
+                <h3>Primary Education</h3>
+
+                <p>
+                    <span>Institution:</span>
+                    Pathardubi Government Primary School
+                </p>
+
+                <p>
+                    <span>Passing Year:</span> 2016
+                </p>
+
+                <p>
+                    <span>Result:</span> GPA 5.00
+                </p>
+
+            </div>
+
+
+            <!-- SSC -->
+
+            <div class="education-card">
+
+                <h3>Secondary Education (SSC)</h3>
+
+                <p>
+                    <span>Institution:</span>
+                    Pathardubi High School
+                </p>
+
+                <p>
+                    <span>Passing Year:</span> 2022
+                </p>
+
+                <p>
+                    <span>Result:</span> GPA 5.00
+                </p>
+
+            </div>
+
+
+            <!-- HSC -->
+
+            <div class="education-card">
+
+                <h3>Higher Secondary Education (HSC)</h3>
+
+                <p>
+                    <span>Institution:</span>
+                    Police Lines School and College, Rangpur
+                </p>
+
+                <p>
+                    <span>Passing Year:</span> 2024
+                </p>
+
+                <p>
+                    <span>Result:</span> GPA 5.00
+                </p>
+
+            </div>
+
+
+            <!-- Honours -->
+
+            <div class="education-card">
+
+                <h3>Undergraduate Education</h3>
+
+                <p>
+                    <span>Institution:</span>
+                    University of Dhaka
+                </p>
+
+                <p>
+                    <span>Department:</span>
+                    Banking and Insurance
+                </p>
+
+                <p>
+                    <span>Status:</span>
+                    Currently Studying
+                </p>
+
+            </div>
 
         </div>
 
@@ -202,8 +350,18 @@
         function showGallery() {
 
             document.getElementById("home").style.display = "none";
-
+            document.getElementById("education").style.display = "none";
             document.getElementById("gallery").style.display = "block";
+
+            window.scrollTo(0, 0);
+
+        }
+
+        function showEducation() {
+
+            document.getElementById("home").style.display = "none";
+            document.getElementById("gallery").style.display = "none";
+            document.getElementById("education").style.display = "block";
 
             window.scrollTo(0, 0);
 
@@ -212,7 +370,7 @@
         function showHome() {
 
             document.getElementById("gallery").style.display = "none";
-
+            document.getElementById("education").style.display = "none";
             document.getElementById("home").style.display = "block";
 
             window.scrollTo(0, 0);
@@ -222,7 +380,6 @@
         function openImage(src) {
 
             document.getElementById("lightbox").style.display = "flex";
-
             document.getElementById("fullImage").src = src;
 
         }
